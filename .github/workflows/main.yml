@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: mkdir output
-      - uses: docker://pandoc/core:2.9
+      - uses: docker://pandoc/core:latest
         with:
           args: >-
             -s texproject/main.tex 
