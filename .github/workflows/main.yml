@@ -22,7 +22,6 @@ jobs:
             -f latex 
             -t epub3 
             -o output/main.epub
-            --bibliography texproject/references.bib
       - uses: actions/upload-artifact@main
         with:
           name: manuscript
