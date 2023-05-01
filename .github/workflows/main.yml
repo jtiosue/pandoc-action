@@ -5,19 +5,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: cd texproject
       - run: mkdir output
       - uses: docker://pandoc/core:latest
         with:
           args: >-
-            -s texproject/main.tex 
+            -s main.tex 
             -f latex 
             -t epub2 
             -o output/main.epub
-            --bibliography texproject/references.bib
+            --bibliography references.bib
             --csl aps.csl
             --citeproc
             --mathml
       - uses: actions/upload-artifact@main
         with:
           name: manuscript
-          path: output
+          path: texproject/output
