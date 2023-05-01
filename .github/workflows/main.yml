@@ -3,9 +3,11 @@ on: [push]
 jobs:
   convert_via_pandoc:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./texproject
     steps:
       - uses: actions/checkout@v3
-      - run: cd texproject
       - run: mkdir output
       - uses: docker://pandoc/core:latest
         with:
