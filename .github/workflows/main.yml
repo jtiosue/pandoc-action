@@ -4,14 +4,14 @@ jobs:
   convert_via_pandoc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: mkdir output
       - uses: docker://pandoc/core:2.9
         with:
           args: >-
             -s texproject/main.tex 
             -f latex 
-            -t epub3 
+            -t epub2 
             -o output/main.epub
       - uses: actions/upload-artifact@main
         with:
