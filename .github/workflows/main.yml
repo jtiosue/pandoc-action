@@ -14,7 +14,8 @@ jobs:
             -t epub2 
             -o output/main.epub
             --bibliography texproject/references.bib
-            --csl aps.csl
+            --citeproc
+            --mathml
       - uses: actions/upload-artifact@main
         with:
           name: manuscript
